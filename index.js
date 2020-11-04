@@ -71,16 +71,7 @@ client.on('message', (channel, userState, message, self) => {
     if(pocketFilter(client, message, userState)){
         return
     }
-    // pocketFilter(client, message, userState)
-    // let msgSentDate = Date.now()
-    // let defaultWaitTime = 60000 * 2
-    // let commandWaitTimer = commandsTimers[message] || {waitTime: defaultWaitTime, lastUsed:false}
-    
-    // if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
-    //     console.log('User need to wait' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer.lastUsed)) / 1000 + ' seconds');
-    //     return
-    // }
-    // commandsTimers[message].lastUsed = msgSentDate;
+
 
 
     const messenger = userState.username

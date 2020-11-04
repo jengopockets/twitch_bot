@@ -48,7 +48,7 @@ function pocketFilter(client, message, userState){
     let defaultWaitTime = 60000 * 2
     let commandWaitTimer = commands[message] || {waitTime: defaultWaitTime, lastUsed:false}
     
-    let timeWait = (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer.lastUsed)) / 1000
+    let timeWait = Math.round((commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer.lastUsed)) / 1000)
     
     if(commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false){
 
