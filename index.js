@@ -67,8 +67,11 @@ client.on('connected', (address, port) => {
 });
 
 client.on('message', (channel, userState, message, self) => {
-
-    pocketFilter(client, message, userState)
+    // console.log(pocketFilter(client, message, userState));
+    if(pocketFilter(client, message, userState)){
+        return
+    }
+    // pocketFilter(client, message, userState)
     // let msgSentDate = Date.now()
     // let defaultWaitTime = 60000 * 2
     // let commandWaitTimer = commandsTimers[message] || {waitTime: defaultWaitTime, lastUsed:false}
