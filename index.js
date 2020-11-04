@@ -6,6 +6,7 @@ const { soundBoard } = require('./soundBoard')
 const { rockPaper } = require('./games/rps');
 const { joke } = require('./joke');
 const { musicPlayer } = require('./visuals/musicPlayer');
+const { pocketFilter } = require('./utility/pocketFilter');
 
 const channelName = process.env.CHANNEL
 // console.log(process.env.USERNAME)
@@ -50,7 +51,12 @@ let commandsTimers = {
     "!wth": {
         waitTime: 5* 60000,
         lastUsed: false
-    }
+    },
+    "!vc": {
+        waitTime: 5* 60000,
+        lastUsed: false
+    },
+
 
 }
 
@@ -62,7 +68,7 @@ client.on('connected', (address, port) => {
 
 client.on('message', (channel, userState, message, self) => {
 
-
+    pocketFilter(client, message, userState)
     // let msgSentDate = Date.now()
     // let defaultWaitTime = 60000 * 2
     // let commandWaitTimer = commandsTimers[message] || {waitTime: defaultWaitTime, lastUsed:false}
